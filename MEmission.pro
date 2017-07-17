@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui charts serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,8 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+    mainwindow.cpp \
+    comchatter.cpp \
+    logger.cpp
 
-HEADERS  += mainwindow.h
+HEADERS += mainwindow.h \
+    comchatter.h \
+    logger.h
 
-FORMS    += mainwindow.ui
+FORMS   += mainwindow.ui
