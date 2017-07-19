@@ -20,12 +20,6 @@ void Logger::print(QString data){
     emit logEvent(tmp);
 }
 
-void Logger::sending(QString data){
-    QString tmp = '[' + now.currentDateTime().toString("hh:mm:ss") + "] sending : " + data;
-    *stream << tmp << endl;
-    emit logEvent(tmp);
-}
-
 void Logger::error(QString data){
     QString tmp = '[' + now.currentDateTime().toString("hh:mm:ss") + "] error : " + data;
     *stream << tmp << endl;

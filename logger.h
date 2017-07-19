@@ -24,7 +24,6 @@ private:
     QDateTime now;
 
 public slots:
-    void sending(QString data);
     void error(QString data);
     void received(QString data);
 

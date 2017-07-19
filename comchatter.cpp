@@ -39,12 +39,16 @@ void ComChatter::close(){
 }
 
 void ComChatter::send(QString data){
-    qDebug() << data << " send";
-    port.write(data.toLocal8Bit() + "\n");
-    port.waitForBytesWritten(100);
+    if(!port.isOpen()){
+        emit closed();
+    }
+    port.write(data.toLocal8Bit());
+    port.waitForBytesWritten(10);
 }
 
 void ComChatter::read(){
-    port.waitForReadyRead(15);
-    emit out(QString(port.readLine()));
+    port.waitForReadyRead(10);
+    while(port.bytesAvailable() >= 20){
+        emit out(QString(port.readLine()));
+    }
 }

@@ -9,6 +9,8 @@
 #include <QSettings>
 #include <QChartView>
 #include <QValueAxis>
+#include <QDateTime>
+#include <QDateTimeAxis>
 #include <QLineSeries>
 #include <QTimer>
 
@@ -47,10 +49,14 @@ private:
     QtCharts::QChart *chart;
     QtCharts::QLineSeries *p;
     QtCharts::QLineSeries *c;
-    QtCharts::QValueAxis *axisX;
+    QtCharts::QLineSeries *sps;
+    QtCharts::QDateTimeAxis *axisX;
+    QtCharts::QValueAxis *axisP;
     QtCharts::QValueAxis *axisY;
+    void resizeEvent(QResizeEvent*);
     double sp;
     QTimer *timer = new QTimer(this);
+    QDateTime now;
 
 private slots:
     void connectButton();
